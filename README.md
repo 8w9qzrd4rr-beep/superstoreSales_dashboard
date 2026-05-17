@@ -106,22 +106,4 @@ Total Orders = DISTINCTCOUNT('clean_data'[Order ID])
 ---
 
 ## How to View
-**Live Dashboard:** [View on Power BI](#) ← add your link here
-
----
-
-## Project Structure
-superstore-powerbi-dashboard/
-├── README.md
-├── data/
-│   ├── train_2.csv          # original raw data
-│   └── clean_data.csv       # cleaned & engineered data
-├── notebooks/
-│   └── data_cleaning.ipynb  # Python cleaning workflow
-└── images/
-├── Dashboard.png
-├── 01-ExecutiveSummary.jpg
-├── 02-SalesPerformance.jpg
-├── 03-ProductAnalysis.jpg
-├── 04-CustomerAnalysis.jpg
-└── 05-Shipping&Operations.jpg
+**Live Dashboard:** [View on Power BI](#)
