@@ -5,3 +5,6 @@ __pycache__/
 venv/
 .DS_Store
 *.zip
+.DS_Store
+**/.ipynb_checkpoints
+**/*.DS_Store
