@@ -76,19 +76,35 @@ orders by day of week and monthly order patterns
 
 ---
 
-## Key DAX Measures
+### Key DAX Measures
+
+#### Current Year
 ```dax
--- Current year sales
-CurrentSale = CALCULATE(SUM('clean_data'[Sales]),
-    YEAR('clean_data'[Order Date]) = MAX(YEAR('clean_data'[Order Date])))
+CurrentYear = MAX('clean_data'[Year])
 
--- Target (previous year)
-TargetSale = CALCULATE(SUM('clean_data'[Sales]),
-    YEAR('clean_data'[Order Date]) = MAX(YEAR('clean_data'[Order Date]))-1)
+PreviousYear = [CurrentYear] - 1
 
--- Total unique orders
-Total Orders = DISTINCTCOUNT('clean_data'[Order ID])
-```
+CurrentSale = 
+VAR _CurrYear = [CurrentYear]
+RETURN
+CALCULATE(
+    SUM(clean_data[Sales]),
+    clean_data[Year] = _CurrYear
+)
+
+TargetSale = 
+VAR _PrevYear = [PreviousYear]
+RETURN
+CALCULATE(
+    SUM(clean_data[Sales]),
+    clean_data[Year] = _PrevYear
+)
+
+Total Orders = 
+CALCULATE(
+    DISTINCTCOUNT('clean_data'[Order ID]),
+    ALL('clean_data'[Year])
+)
 
 ---
 
